@@ -59,7 +59,7 @@ export default {
       }
 
       try {
-        await axios.delete("http://147.45.227.171/api/auth/logout", {
+        await axios.delete("http://154.59.111.79/api/auth/logout", {
           headers: { Authorization: `Bearer ${token}`, Accept: "application/json" },
         });
 

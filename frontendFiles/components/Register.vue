@@ -50,7 +50,7 @@ export default {
       console.log("Отправка данных:", requestData);
 
       try {
-        const response = await axios.post("http://147.45.227.171/api/auth/register", requestData);
+        const response = await axios.post("http://154.59.111.79/api/auth/register", requestData);
         this.successMessage = "Регистрация успешна!";
         console.log("Ответ сервера:", response.data);
       } catch (error) {

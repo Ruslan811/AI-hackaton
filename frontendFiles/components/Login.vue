@@ -41,7 +41,7 @@ export default {
       };
 
       try {
-        const response = await axios.post("http://147.45.227.171/api/auth/login", requestData);
+        const response = await axios.post("http://154.59.111.79/api/auth/login", requestData);
         this.successMessage = "Вход выполнен успешно!";
         console.log("Ответ сервера:", response.data);
 
