@@ -32,7 +32,7 @@ export default {
       }
 
       try {
-        const response = await axios.delete("http://154.59.111.79/api/auth/logout", {
+        const response = await axios.delete("http://154.59.111.79:81/api/auth/logout", {
           headers: {
             Authorization: `Bearer ${token}`,
             Accept: "application/json",
