@@ -55,102 +55,98 @@
       {
         "user_id": 1,
         "text": "Как мне написать программу, которая говорит 'Привет, мир'?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-07T10:15:00"
       },
       {
         "user_id": 1,
         "text": "Привет! В Python это очень просто! Напиши так:\n```python\nprint('Привет, мир!')\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-07T10:15:05"
       },
       {
         "user_id": 1,
         "text": "А можно сделать, чтобы она повторяла это 5 раз?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-07T10:16:00"
       },
       {
         "user_id": 1,
         "text": "Конечно! Используй цикл:\n```python\nfor i in range(5):\n    print('Привет, мир!')\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-07T10:16:05"
       },
       {
         "user_id": 2,
         "text": "Как сделать кнопку в HTML, чтобы она что-то делала?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-08T12:30:00"
       },
       {
         "user_id": 2,
         "text": "Привет! Используй тег `<button>` и добавь к нему обработчик на JavaScript:\n```html\n<button onclick='alert(\"Ты нажал кнопку!\")'>Нажми меня!</button>\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-08T12:30:05"
       },
       {
         "user_id": 2,
         "text": "А как сделать так, чтобы она меняла цвет страницы?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-08T12:31:00"
       },
       {
         "user_id": 2,
         "text": "Добавь в обработчик вот такой код:\n```javascript\ndocument.body.style.backgroundColor = 'blue';\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-08T12:31:05"
       },
       {
         "user_id": 3,
         "text": "Что такое переменные в программировании?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-09T15:45:00"
       },
       {
         "user_id": 3,
         "text": "Переменные — это как коробки, куда ты кладёшь данные. Например, в Python:\n```python\nname = 'Лена'\n```\nТеперь в `name` хранится твое имя!",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-09T15:45:05"
       },
       {
         "user_id": 3,
         "text": "А можно хранить числа?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-09T15:46:00"
       },
       {
         "user_id": 3,
         "text": "Конечно! Например:\n```python\nage = 10\n```\nТеперь `age` хранит число 10!",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-09T15:46:05"
       },
       {
         "user_id": 4,
         "text": "Как сделать простую игру на Python?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-10T09:00:00"
       },
       {
         "user_id": 4,
         "text": "Попробуй библиотеку Pygame! Например, можно нарисовать круг, который двигается:\n```python\nimport pygame\npygame.init()\nscreen = pygame.display.set_mode((500, 500))\nrunning = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            running = False\n    screen.fill((0, 0, 0))\n    pygame.draw.circle(screen, (255, 0, 0), (250, 250), 50)\n    pygame.display.flip()\npygame.quit()\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-10T09:00:05"
       },
       {
         "user_id": 4,
         "text": "А как сделать, чтобы он двигался по стрелкам?",
-        "is_user": true
+        "is_user": true,
+        "created_at": "2025-03-10T09:01:00"
       },
       {
         "user_id": 4,
         "text": "Используй `pygame.KEYDOWN` и меняй координаты круга!\n```python\nif event.type == pygame.KEYDOWN:\n    if event.key == pygame.K_LEFT:\n        x -= 5\n    elif event.key == pygame.K_RIGHT:\n        x += 5\n```",
-        "is_user": false
-      },
-      {
-        "user_id": 5,
-        "text": "Что такое массивы?",
-        "is_user": true
-      },
-      {
-        "user_id": 5,
-        "text": "Массив — это как коробка с игрушками, только вместо игрушек там данные! В Python это списки:\n```python\ntoys = ['машинка', 'мяч', 'кукла']\n```",
-        "is_user": false
-      },
-      {
-        "user_id": 5,
-        "text": "А как добавить туда новый элемент?",
-        "is_user": true
-      },
-      {
-        "user_id": 5,
-        "text": "Используй `append()`:\n```python\ntoys.append('лего')\n```",
-        "is_user": false
+        "is_user": false,
+        "created_at": "2025-03-10T09:01:05"
       }
     ]
   }

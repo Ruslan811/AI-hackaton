@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center mt-10 px-6">
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-2xl h-96 overflow-y-auto flex flex-col" id="chatBox">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-4xl h-[600px] overflow-y-auto flex flex-col" id="chatBox">
       <div 
         v-for="message in chatMessages" 
         :key="message.id" 
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="flex mt-4 w-full max-w-2xl">
+    <div class="flex mt-4 w-full max-w-4xl">
       <input 
         v-model="chatInput" 
         type="text" 
@@ -47,7 +47,7 @@ export default {
       handler() {
         this.saveChat();
       },
-      deep: true, // Чтобы Vue отслеживал изменения внутри массива
+      deep: true,
     },
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
         }
       } catch (error) {
         console.error("Ошибка загрузки чата:", error);
-        this.chatMessages = []; // Если ошибка, очищаем чат
+        this.chatMessages = [];
       }
     },
     async sendMessage() {
