@@ -36,17 +36,46 @@ export default {
     return {
       chatMessages: [],
       chatInput: "",
-      loading: false, // Флаг загрузки
+      loading: false,
     };
   },
+  created() {
+    this.loadChat();
+  },
+  watch: {
+    chatMessages: {
+      handler() {
+        this.saveChat();
+      },
+      deep: true, // Чтобы Vue отслеживал изменения внутри массива
+    },
+  },
   methods: {
+    saveChat() {
+      try {
+        localStorage.setItem("chatMessages", JSON.stringify(this.chatMessages));
+      } catch (error) {
+        console.error("Ошибка сохранения чата:", error);
+      }
+    },
+    loadChat() {
+      try {
+        const savedMessages = localStorage.getItem("chatMessages");
+        if (savedMessages) {
+          this.chatMessages = JSON.parse(savedMessages);
+        }
+      } catch (error) {
+        console.error("Ошибка загрузки чата:", error);
+        this.chatMessages = []; // Если ошибка, очищаем чат
+      }
+    },
     async sendMessage() {
       if (this.chatInput.trim() === "") return;
 
       const userMessage = { id: Date.now(), text: this.chatInput, user: "me" };
       this.chatMessages.push(userMessage);
-      this.loading = true; // Показываем индикатор загрузки
       this.chatInput = "";
+      this.loading = true;
 
       try {
         const token = localStorage.getItem("token");
@@ -63,22 +92,18 @@ export default {
         if (!response.ok) throw new Error(`Ошибка ${response.status}`);
 
         const data = await response.json();
-        console.log("Ответ от сервера:", data); // Логируем ответ
+        console.log("Ответ от сервера:", data);
 
         if (!data.message) {
-  console.error("Ошибка: сервер не вернул текст ответа!", data);
-  throw new Error("Сервер не вернул текст");
-}
+          throw new Error("Сервер не вернул текст");
+        }
 
-this.chatMessages.push({ id: Date.now(), text: data.message, user: "bot" });
-
-
-        this.chatMessages.push({ id: Date.now(), text: data.text, user: "bot" });
+        this.chatMessages.push({ id: Date.now(), text: data.message, user: "bot" });
       } catch (error) {
         console.error("Ошибка при отправке:", error);
         this.chatMessages.push({ id: Date.now(), text: "Ошибка при получении ответа", user: "bot" });
       } finally {
-        this.loading = false; // Скрываем индикатор загрузки
+        this.loading = false;
         this.$nextTick(() => {
           document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight;
         });

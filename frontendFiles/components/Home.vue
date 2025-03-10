@@ -6,7 +6,9 @@
     </p>
     
     <div class="mt-6">
-      <button class="bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600" @click="$emit('showRegister')">
+      <button 
+        class="bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600"
+        @click="$router.push('/chat')">
         Попробовать бесплатно
       </button>
     </div>
